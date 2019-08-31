@@ -64,8 +64,6 @@ Wire Wire Line
 	2600 2100 2600 2000
 Connection ~ 2600 2100
 Wire Wire Line
-	2600 2100 1600 2100
-Wire Wire Line
 	3150 2100 3150 2000
 Connection ~ 3150 2100
 Wire Wire Line
@@ -83,8 +81,6 @@ Wire Wire Line
 Wire Wire Line
 	2600 1600 2300 1600
 Connection ~ 2600 3300
-Wire Wire Line
-	2600 3300 1600 3300
 Wire Wire Line
 	3150 3300 3700 3300
 Connection ~ 3150 3300
@@ -130,8 +126,6 @@ Wire Wire Line
 Connection ~ 3150 2700
 Wire Wire Line
 	3150 2600 3150 2700
-Wire Wire Line
-	2600 2700 1600 2700
 Connection ~ 2600 2700
 Wire Wire Line
 	2600 2600 2600 2700
@@ -275,8 +269,6 @@ Wire Wire Line
 Wire Wire Line
 	2600 3800 2600 3900
 Connection ~ 2600 3900
-Wire Wire Line
-	2600 3900 1600 3900
 Wire Wire Line
 	3150 3800 3150 3900
 Connection ~ 3150 3900
@@ -431,8 +423,6 @@ Wire Wire Line
 Wire Wire Line
 	2600 4400 2600 4500
 Connection ~ 2600 4500
-Wire Wire Line
-	2600 4500 1600 4500
 Wire Wire Line
 	3150 4400 3150 4500
 Connection ~ 3150 4500
@@ -660,8 +650,6 @@ Wire Wire Line
 Wire Wire Line
 	2600 5000 2600 5100
 Connection ~ 2600 5100
-Wire Wire Line
-	2600 5100 1600 5100
 Wire Wire Line
 	3150 5000 3150 5100
 Connection ~ 3150 5100
@@ -898,8 +886,6 @@ Wire Wire Line
 	7450 2100 7450 2000
 Connection ~ 7450 2100
 Wire Wire Line
-	7450 2100 6450 2100
-Wire Wire Line
 	8000 2100 8000 2000
 Connection ~ 8000 2100
 Wire Wire Line
@@ -917,8 +903,6 @@ Wire Wire Line
 Wire Wire Line
 	7450 1600 7150 1600
 Connection ~ 7450 3300
-Wire Wire Line
-	7450 3300 6450 3300
 Wire Wire Line
 	8000 3300 8550 3300
 Connection ~ 8000 3300
@@ -964,8 +948,6 @@ Wire Wire Line
 Connection ~ 8000 2700
 Wire Wire Line
 	8000 2600 8000 2700
-Wire Wire Line
-	7450 2700 6450 2700
 Connection ~ 7450 2700
 Wire Wire Line
 	7450 2600 7450 2700
@@ -1109,8 +1091,6 @@ Wire Wire Line
 Wire Wire Line
 	7450 3800 7450 3900
 Connection ~ 7450 3900
-Wire Wire Line
-	7450 3900 6450 3900
 Wire Wire Line
 	8000 3800 8000 3900
 Connection ~ 8000 3900
@@ -1265,8 +1245,6 @@ Wire Wire Line
 Wire Wire Line
 	7450 4400 7450 4500
 Connection ~ 7450 4500
-Wire Wire Line
-	7450 4500 6450 4500
 Wire Wire Line
 	8000 4400 8000 4500
 Connection ~ 8000 4500
@@ -1494,8 +1472,6 @@ Wire Wire Line
 Wire Wire Line
 	7450 5000 7450 5100
 Connection ~ 7450 5100
-Wire Wire Line
-	7450 5100 6450 5100
 Wire Wire Line
 	8000 5000 8000 5100
 Connection ~ 8000 5100
@@ -1850,4 +1826,364 @@ F 3 "~" H 10200 4850 50  0001 C CNN
 	1    10200 4850
 	-1   0    0    1   
 $EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 13 1 5D7DA4E3
+P 2300 1550
+F 0 "U3" V 2343 1506 50  0000 R CNN
+F 1 "Ring_Tracks" H 2300 1400 50  0001 C CNN
+F 2 "strobo:LED_Ring" H 2300 1300 50  0001 C CNN
+F 3 "" H 2300 1550 50  0001 C CNN
+	13   2300 1550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9900 1550 9900 1600
+Connection ~ 9900 1600
+Wire Wire Line
+	9350 1550 9350 1600
+Connection ~ 9350 1600
+Wire Wire Line
+	8800 1550 8800 1600
+Connection ~ 8800 1600
+Wire Wire Line
+	8250 1550 8250 1600
+Connection ~ 8250 1600
+Wire Wire Line
+	7700 1550 7700 1600
+Connection ~ 7700 1600
+Wire Wire Line
+	7150 1550 7150 1600
+Connection ~ 7150 1600
+Wire Wire Line
+	2300 1550 2300 1600
+Connection ~ 2300 1600
+Wire Wire Line
+	2850 1550 2850 1600
+Connection ~ 2850 1600
+Wire Wire Line
+	3400 1550 3400 1600
+Connection ~ 3400 1600
+Wire Wire Line
+	3950 1550 3950 1600
+Connection ~ 3950 1600
+Wire Wire Line
+	4500 1550 4500 1600
+Connection ~ 4500 1600
+Wire Wire Line
+	5050 1550 5050 1600
+Connection ~ 5050 1600
+$Comp
+L strobo:Ring_Tracks U3
+U 14 1 5D7B7D6F
+P 2850 1550
+F 0 "U3" V 2893 1506 50  0000 R CNN
+F 1 "Ring_Tracks" V 2848 1506 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 2850 1300 50  0001 C CNN
+F 3 "" H 2850 1550 50  0001 C CNN
+	14   2850 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 24 1 5D88AB8C
+P 9900 1550
+F 0 "U3" V 9943 1506 50  0000 R CNN
+F 1 "Ring_Tracks" V 9898 1506 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 9900 1300 50  0001 C CNN
+F 3 "" H 9900 1550 50  0001 C CNN
+	24   9900 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 23 1 5D8895F0
+P 9350 1550
+F 0 "U3" V 9393 1506 50  0000 R CNN
+F 1 "Ring_Tracks" V 9348 1506 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 9350 1300 50  0001 C CNN
+F 3 "" H 9350 1550 50  0001 C CNN
+	23   9350 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 22 1 5D88886E
+P 8800 1550
+F 0 "U3" V 8843 1506 50  0000 R CNN
+F 1 "Ring_Tracks" V 8798 1506 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 8800 1300 50  0001 C CNN
+F 3 "" H 8800 1550 50  0001 C CNN
+	22   8800 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 21 1 5D8871CC
+P 8250 1550
+F 0 "U3" V 8293 1506 50  0000 R CNN
+F 1 "Ring_Tracks" V 8248 1506 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 8250 1300 50  0001 C CNN
+F 3 "" H 8250 1550 50  0001 C CNN
+	21   8250 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 20 1 5D8858AF
+P 7700 1550
+F 0 "U3" V 7743 1506 50  0000 R CNN
+F 1 "Ring_Tracks" V 7698 1506 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 7700 1300 50  0001 C CNN
+F 3 "" H 7700 1550 50  0001 C CNN
+	20   7700 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 12 1 5D883371
+P 10350 3300
+F 0 "U3" V 10393 3256 50  0000 R CNN
+F 1 "Ring_Tracks" V 10348 3256 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 10350 3050 50  0001 C CNN
+F 3 "" H 10350 3300 50  0001 C CNN
+	12   10350 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 11 1 5D882168
+P 10350 3900
+F 0 "U3" V 10393 3856 50  0000 R CNN
+F 1 "Ring_Tracks" V 10348 3856 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 10350 3650 50  0001 C CNN
+F 3 "" H 10350 3900 50  0001 C CNN
+	11   10350 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 10 1 5D880411
+P 10350 4500
+F 0 "U3" V 10393 4456 50  0000 R CNN
+F 1 "Ring_Tracks" V 10348 4456 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 10350 4250 50  0001 C CNN
+F 3 "" H 10350 4500 50  0001 C CNN
+	10   10350 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 9 1 5D87E9A0
+P 10350 5100
+F 0 "U3" V 10393 5056 50  0000 R CNN
+F 1 "Ring_Tracks" V 10348 5056 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 10350 4850 50  0001 C CNN
+F 3 "" H 10350 5100 50  0001 C CNN
+	9    10350 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 8 1 5D87CEEB
+P 10350 2100
+F 0 "U3" V 10393 2056 50  0000 R CNN
+F 1 "Ring_Tracks" V 10348 2056 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 10350 1850 50  0001 C CNN
+F 3 "" H 10350 2100 50  0001 C CNN
+	8    10350 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 7 1 5D879D57
+P 10350 2700
+F 0 "U3" V 10393 2656 50  0000 R CNN
+F 1 "Ring_Tracks" V 10348 2656 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 10350 2450 50  0001 C CNN
+F 3 "" H 10350 2700 50  0001 C CNN
+	7    10350 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 15 1 5D7DF346
+P 3400 1550
+F 0 "U3" V 3443 1506 50  0000 R CNN
+F 1 "Ring_Tracks" V 3398 1506 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 3400 1300 50  0001 C CNN
+F 3 "" H 3400 1550 50  0001 C CNN
+	15   3400 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 16 1 5D7DE842
+P 3950 1550
+F 0 "U3" V 3993 1506 50  0000 R CNN
+F 1 "Ring_Tracks" V 3948 1506 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 3950 1300 50  0001 C CNN
+F 3 "" H 3950 1550 50  0001 C CNN
+	16   3950 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 17 1 5D7DD694
+P 4500 1550
+F 0 "U3" V 4543 1506 50  0000 R CNN
+F 1 "Ring_Tracks" V 4498 1506 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 4500 1300 50  0001 C CNN
+F 3 "" H 4500 1550 50  0001 C CNN
+	17   4500 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 18 1 5D7DCC04
+P 5050 1550
+F 0 "U3" V 5093 1506 50  0000 R CNN
+F 1 "Ring_Tracks" V 5048 1506 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 5050 1300 50  0001 C CNN
+F 3 "" H 5050 1550 50  0001 C CNN
+	18   5050 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 6 1 5D70FEFF
+P 5500 5100
+F 0 "U3" V 5543 5056 50  0000 R CNN
+F 1 "Ring_Tracks" V 5498 5056 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 5500 4850 50  0001 C CNN
+F 3 "" H 5500 5100 50  0001 C CNN
+	6    5500 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 5 1 5D70F557
+P 5500 4500
+F 0 "U3" V 5543 4456 50  0000 R CNN
+F 1 "Ring_Tracks" V 5498 4456 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 5500 4250 50  0001 C CNN
+F 3 "" H 5500 4500 50  0001 C CNN
+	5    5500 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 4 1 5D70C204
+P 5500 3900
+F 0 "U3" V 5543 3856 50  0000 R CNN
+F 1 "Ring_Tracks" V 5498 3856 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 5500 3650 50  0001 C CNN
+F 3 "" H 5500 3900 50  0001 C CNN
+	4    5500 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 3 1 5D70AA4B
+P 5500 3300
+F 0 "U3" V 5543 3256 50  0000 R CNN
+F 1 "Ring_Tracks" V 5498 3256 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 5500 3050 50  0001 C CNN
+F 3 "" H 5500 3300 50  0001 C CNN
+	3    5500 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 2 1 5D708F5A
+P 5500 2700
+F 0 "U3" V 5543 2656 50  0000 R CNN
+F 1 "Ring_Tracks" V 5498 2656 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 5500 2450 50  0001 C CNN
+F 3 "" H 5500 2700 50  0001 C CNN
+	2    5500 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 1 1 5D705FE5
+P 5500 2100
+F 0 "U3" V 5543 2056 50  0000 R CNN
+F 1 "Ring_Tracks" V 5498 2056 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 5500 1850 50  0001 C CNN
+F 3 "" H 5500 2100 50  0001 C CNN
+	1    5500 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L strobo:Ring_Tracks U3
+U 19 1 5D884BDB
+P 7150 1550
+F 0 "U3" V 7193 1506 50  0000 R CNN
+F 1 "Ring_Tracks" V 7148 1506 50  0001 R CNN
+F 2 "strobo:LED_Ring" H 7150 1300 50  0001 C CNN
+F 3 "" H 7150 1550 50  0001 C CNN
+	19   7150 1550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5500 5100 5350 5100
+Connection ~ 5350 5100
+Wire Wire Line
+	5500 4500 5350 4500
+Connection ~ 5350 4500
+Wire Wire Line
+	5500 3900 5350 3900
+Connection ~ 5350 3900
+Wire Wire Line
+	5500 3300 5350 3300
+Connection ~ 5350 3300
+Wire Wire Line
+	5500 2700 5350 2700
+Connection ~ 5350 2700
+Wire Wire Line
+	5500 2100 5350 2100
+Connection ~ 5350 2100
+Wire Wire Line
+	1600 2100 2600 2100
+Wire Wire Line
+	1600 2700 2600 2700
+Wire Wire Line
+	1600 3300 2600 3300
+Wire Wire Line
+	1600 3900 2600 3900
+Wire Wire Line
+	1600 4500 2600 4500
+Wire Wire Line
+	1600 5100 2600 5100
+Wire Wire Line
+	10350 2100 10200 2100
+Connection ~ 10200 2100
+Wire Wire Line
+	10200 5100 10350 5100
+Connection ~ 10200 5100
+Wire Wire Line
+	10350 4500 10200 4500
+Connection ~ 10200 4500
+Wire Wire Line
+	10200 3900 10350 3900
+Connection ~ 10200 3900
+Wire Wire Line
+	10350 3300 10200 3300
+Connection ~ 10200 3300
+Wire Wire Line
+	10200 2700 10350 2700
+Connection ~ 10200 2700
+Wire Wire Line
+	6450 2100 7450 2100
+Wire Wire Line
+	6450 2700 7450 2700
+Wire Wire Line
+	6450 3300 7450 3300
+Wire Wire Line
+	6450 3900 7450 3900
+Wire Wire Line
+	6450 4500 7450 4500
+Wire Wire Line
+	6450 5100 7450 5100
 $EndSCHEMATC
