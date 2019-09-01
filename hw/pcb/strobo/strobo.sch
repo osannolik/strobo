@@ -28,12 +28,12 @@ $EndComp
 $Comp
 L power:VDD #PWR0101
 U 1 1 5D4CFD23
-P 5050 1550
-F 0 "#PWR0101" H 5050 1400 50  0001 C CNN
-F 1 "VDD" H 5067 1723 50  0000 C CNN
-F 2 "" H 5050 1550 50  0001 C CNN
-F 3 "" H 5050 1550 50  0001 C CNN
-	1    5050 1550
+P 5050 1350
+F 0 "#PWR0101" H 5050 1200 50  0001 C CNN
+F 1 "VDD" H 5067 1523 50  0000 C CNN
+F 2 "" H 5050 1350 50  0001 C CNN
+F 3 "" H 5050 1350 50  0001 C CNN
+	1    5050 1350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -204,12 +204,12 @@ Wire Wire Line
 $Comp
 L power:VDD #PWR0107
 U 1 1 5D4F2458
-P 1650 1550
-F 0 "#PWR0107" H 1650 1400 50  0001 C CNN
-F 1 "VDD" H 1667 1723 50  0000 C CNN
-F 2 "" H 1650 1550 50  0001 C CNN
-F 3 "" H 1650 1550 50  0001 C CNN
-	1    1650 1550
+P 1650 1350
+F 0 "#PWR0107" H 1650 1200 50  0001 C CNN
+F 1 "VDD" H 1667 1523 50  0000 C CNN
+F 2 "" H 1650 1350 50  0001 C CNN
+F 3 "" H 1650 1350 50  0001 C CNN
+	1    1650 1350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -224,7 +224,7 @@ F 3 "~" H 1650 1800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	1650 1600 1650 1550
+	1650 1600 1650 1350
 Wire Wire Line
 	1650 2000 1650 2050
 $Comp
@@ -271,17 +271,6 @@ F 3 "~" H 9250 2550 50  0001 C CNN
 	1    9250 2550
 	0    1    1    0   
 $EndComp
-$Comp
-L power:VDD #PWR0109
-U 1 1 5D5096F0
-P 9450 2350
-F 0 "#PWR0109" H 9450 2200 50  0001 C CNN
-F 1 "VDD" H 9467 2523 50  0000 C CNN
-F 2 "" H 9450 2350 50  0001 C CNN
-F 3 "" H 9450 2350 50  0001 C CNN
-	1    9450 2350
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	9400 2550 9450 2550
 Wire Wire Line
@@ -306,8 +295,6 @@ Wire Wire Line
 	9050 2550 9100 2550
 Wire Wire Line
 	9100 2750 9050 2750
-Wire Wire Line
-	9450 2350 9450 2550
 Connection ~ 9450 2550
 $Comp
 L Device:C C8
@@ -601,77 +588,29 @@ F12 "LM_S_E" I L 7200 5200 50
 F13 "LM_S_F" I L 7200 5300 50 
 $EndSheet
 Wire Wire Line
-	7200 4800 4400 4800
+	7200 4800 7000 4800
 Wire Wire Line
-	4400 4800 4400 4300
+	7000 4900 7200 4900
 Wire Wire Line
-	4400 4300 4450 4300
+	7200 5000 7000 5000
 Wire Wire Line
-	4450 4200 4300 4200
+	7200 5100 7000 5100
 Wire Wire Line
-	4300 4200 4300 4900
+	7000 5200 7200 5200
 Wire Wire Line
-	4300 4900 7200 4900
+	7200 5300 7000 5300
 Wire Wire Line
-	7200 5000 4200 5000
+	7000 4600 7200 4600
 Wire Wire Line
-	4200 5000 4200 4100
+	7000 4500 7200 4500
 Wire Wire Line
-	4200 4100 4450 4100
+	7200 4400 7000 4400
 Wire Wire Line
-	7200 5100 4100 5100
+	7000 4300 7200 4300
 Wire Wire Line
-	4100 5100 4100 4000
+	7200 4200 7000 4200
 Wire Wire Line
-	4100 4000 4450 4000
-Wire Wire Line
-	4450 3900 4000 3900
-Wire Wire Line
-	4000 3900 4000 5200
-Wire Wire Line
-	4000 5200 7200 5200
-Wire Wire Line
-	7200 5300 3900 5300
-Wire Wire Line
-	3900 5300 3900 3800
-Wire Wire Line
-	3900 3800 4450 3800
-Wire Wire Line
-	5550 4300 6250 4300
-Wire Wire Line
-	6250 4300 6250 4600
-Wire Wire Line
-	6250 4600 7200 4600
-Wire Wire Line
-	5550 4000 6350 4000
-Wire Wire Line
-	6350 4000 6350 4500
-Wire Wire Line
-	6350 4500 7200 4500
-Wire Wire Line
-	7200 4400 6450 4400
-Wire Wire Line
-	6450 4400 6450 3900
-Wire Wire Line
-	6450 3900 5550 3900
-Wire Wire Line
-	5550 3800 6550 3800
-Wire Wire Line
-	6550 3800 6550 4300
-Wire Wire Line
-	6550 4300 7200 4300
-Wire Wire Line
-	7200 4200 6650 4200
-Wire Wire Line
-	6650 4200 6650 3700
-Wire Wire Line
-	6650 3700 5550 3700
-Wire Wire Line
-	5550 3600 6750 3600
-Wire Wire Line
-	6750 3600 6750 4100
-Wire Wire Line
-	6750 4100 7200 4100
+	7000 4100 7200 4100
 Wire Wire Line
 	5150 2200 5200 2200
 Connection ~ 5150 2200
@@ -708,18 +647,14 @@ Wire Wire Line
 $Comp
 L Device:R R1
 U 1 1 5D69166A
-P 5050 1750
-F 0 "R1" H 5120 1796 50  0000 L CNN
-F 1 "0R" H 5120 1705 50  0000 L CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4980 1750 50  0001 C CNN
-F 3 "~" H 5050 1750 50  0001 C CNN
-	1    5050 1750
+P 5050 1550
+F 0 "R1" H 5120 1596 50  0000 L CNN
+F 1 "0R" H 5120 1505 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4980 1550 50  0001 C CNN
+F 3 "~" H 5050 1550 50  0001 C CNN
+	1    5050 1550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5050 1550 5050 1600
-Wire Wire Line
-	5050 1900 5050 2000
 Connection ~ 5050 2000
 Wire Wire Line
 	3800 3300 4450 3300
@@ -736,4 +671,83 @@ F 3 "~" H 5350 2200 50  0001 C CNN
 	1    5350 2200
 	0    1    1    0   
 $EndComp
+Wire Wire Line
+	5050 1400 5050 1350
+Wire Wire Line
+	5050 1700 5050 1750
+Wire Wire Line
+	5050 1750 5050 2000
+Wire Wire Line
+	5050 1750 9450 1750
+Connection ~ 5050 1750
+Wire Wire Line
+	9450 1750 9450 2550
+Text GLabel 7000 4100 0    50   Input ~ 0
+RA
+Text GLabel 7000 4200 0    50   Input ~ 0
+RB
+Text GLabel 7000 4300 0    50   Input ~ 0
+RC
+Text GLabel 7000 4400 0    50   Input ~ 0
+RD
+Text GLabel 7000 4500 0    50   Input ~ 0
+RE
+Text GLabel 7000 4600 0    50   Input ~ 0
+RF
+Text GLabel 7000 4800 0    50   Input ~ 0
+SA
+Text GLabel 7000 4900 0    50   Input ~ 0
+SB
+Text GLabel 7000 5000 0    50   Input ~ 0
+SC
+Text GLabel 7000 5100 0    50   Input ~ 0
+SD
+Text GLabel 7000 5200 0    50   Input ~ 0
+SE
+Text GLabel 7000 5300 0    50   Input ~ 0
+SF
+Text GLabel 5750 3700 2    50   Output ~ 0
+SA
+Wire Wire Line
+	5750 3700 5550 3700
+Text GLabel 5750 3900 2    50   Output ~ 0
+SB
+Text GLabel 4250 3900 0    50   Output ~ 0
+SC
+Text GLabel 5750 4300 2    50   Output ~ 0
+SD
+Text GLabel 5750 2800 2    50   Output ~ 0
+SE
+Text GLabel 5750 3000 2    50   Output ~ 0
+SF
+Text GLabel 5750 3600 2    50   Output ~ 0
+RA
+Text GLabel 5750 3800 2    50   Output ~ 0
+RB
+Text GLabel 4250 3800 0    50   Output ~ 0
+RC
+Text GLabel 5750 4000 2    50   Output ~ 0
+RD
+Text GLabel 4250 4000 0    50   Output ~ 0
+RE
+Text GLabel 5750 2900 2    50   Output ~ 0
+RF
+Wire Wire Line
+	5750 3000 5550 3000
+Wire Wire Line
+	5750 3600 5550 3600
+Wire Wire Line
+	5750 3800 5550 3800
+Wire Wire Line
+	5550 3900 5750 3900
+Wire Wire Line
+	5750 4000 5550 4000
+Wire Wire Line
+	5750 4300 5550 4300
+Wire Wire Line
+	4450 3800 4250 3800
+Wire Wire Line
+	4250 3900 4450 3900
+Wire Wire Line
+	4450 4000 4250 4000
 $EndSCHEMATC
