@@ -1,0 +1,39 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Ring_Tracks
+#
+DEF Ring_Tracks U 0 40 Y Y 24 F N
+F0 "U" 0 -50 50 H V C CNN
+F1 "Ring_Tracks" 0 -150 50 H I C CNN
+F2 "strobo:LED_Ring" 0 -250 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+X ~ 1 0 0 100 R 50 50 1 1 I
+X ~ 6 0 0 100 R 50 50 2 1 I
+X ~ 5 0 0 100 R 50 50 3 1 I
+X ~ 4 0 0 100 R 50 50 4 1 I
+X ~ 3 0 0 100 R 50 50 5 1 I
+X ~ 2 0 0 100 R 50 50 6 1 I
+X ~ 8 0 0 100 R 50 50 7 1 I
+X ~ 13 0 0 100 R 50 50 8 1 I
+X ~ 12 0 0 100 R 50 50 9 1 I
+X ~ 11 0 0 100 R 50 50 10 1 I
+X ~ 10 0 0 100 R 50 50 11 1 I
+X ~ 9 0 0 100 R 50 50 12 1 I
+X ~ 19 0 0 100 R 50 50 13 1 I
+X ~ 21 0 0 100 R 50 50 14 1 I
+X ~ 23 0 0 100 R 50 50 15 1 I
+X ~ 17 0 0 100 R 50 50 16 1 I
+X ~ 15 0 0 100 R 50 50 17 1 I
+X ~ 7 0 0 100 R 50 50 18 1 I
+X ~ 20 0 0 100 R 50 50 19 1 I
+X ~ 22 0 0 100 R 50 50 20 1 I
+X ~ 24 0 0 100 R 50 50 21 1 I
+X ~ 18 0 0 100 R 50 50 22 1 I
+X ~ 16 0 0 100 R 50 50 23 1 I
+X ~ 14 0 0 100 R 50 50 24 1 I
+ENDDRAW
+ENDDEF
+#
+#End Library
