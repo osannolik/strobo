@@ -12,6 +12,10 @@ keywords = ["arm", "cortex-m"]
 cortex-m-semihosting = "0.3.3"
 panic-semihosting = "0.5.3"
 
+[dependencies.num]
+version = "0.2"
+default-features = false
+
 [dependencies.rtfm]
 package = "cortex-m-rtfm"
 version = "0.4.3"
