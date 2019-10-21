@@ -2,32 +2,37 @@
 #![deny(warnings)]
 #![no_main]
 #![no_std]
-#![allow(dead_code)]
+//#![allow(dead_code)]
 #![allow(unused)]
 
 extern crate panic_semihosting;
 
+//#[macro_use(block)]
+//extern crate nb;
+
 // use cortex_m_semihosting::hprintln;
 use rtfm::app;
-use stm32l0xx_hal::{gpio, pac, prelude::*, rcc, rcc::Config, timer};
+use stm32l0xx_hal::{gpio, pac, prelude::*, rcc::Config, timer};
 
 mod charlieplexing;
 mod led_ring;
 
 use charlieplexing::Sequencer;
-use led_ring::pattern::{Rpm, ToDegree, ToRpm};
+use led_ring::pattern::ToDegree;
 
-#[app(device = stm32l0xx_hal::pac)]
+#[app(device = stm32l0xx_hal::pac, peripherals = true)]
 const APP: () = {
-    static mut PIN_SEQ: Option<Sequencer> = None;
+    struct Resources {
+        #[init(None)]
+        pin_seq: Option<charlieplexing::PinSequence>,
 
-    static mut P: gpio::gpioa::PA1<gpio::Output<gpio::PushPull>> = ();
-    static mut TIMER: timer::Timer<pac::TIM2> = ();
+        test_pin: gpio::gpioa::PA1<gpio::Output<gpio::PushPull>>,
+        pattern_timer: timer::Timer<pac::TIM2>,
+    }
 
     #[init]
-    fn init() -> init::LateResources {
-        let mcu: pac::Peripherals = device;
-        // let _core: rtfm::Peripherals = core;
+    fn init(cx: init::Context) -> init::LateResources {
+        let mcu: pac::Peripherals = cx.device;
 
         let mut rcc_cfg = mcu.RCC.freeze(Config::hsi16());
 
@@ -40,46 +45,36 @@ const APP: () = {
         pin_rf.set_high().unwrap();
 
         // Configure timers
-        let mut tim2 = mcu.TIM2.timer(100.ms(), &mut rcc_cfg);
+        let mut ptim = mcu.TIM2.timer(100.ms(), &mut rcc_cfg);
 
         // Enable interrupts
-        tim2.listen();
+        ptim.listen();
 
         init::LateResources {
-            P: pin_rf,
-            TIMER: tim2,
+            test_pin: pin_rf,
+            pattern_timer: ptim,
         }
     }
 
-    #[interrupt(resources = [P, PIN_SEQ, TIMER])]
-    fn TIM2() {
-        static mut PAT: Option<led_ring::pattern::StrobeSteps> = None;
+    #[task(binds = TIM2, resources = [test_pin, pin_seq, pattern_timer])]
+    fn tim2(cx: tim2::Context) {
+        static mut PAT: led_ring::pattern::StrobeSteps = led_ring::pattern::RPM33_DEFAULT;
 
-        // Poor-man's const fn
-        match PAT {
-            None => {
-                *PAT = Some(reference_strobe_pattern((100.0 / 3.0).rpm()));
-            }
-            Some(_) => {}
-        }
+        let delay = (PAT.time() * 1000.0) as u32;
 
-        if let Some(p) = PAT {
-            let (t, pattern) = p.next();
+        cx.resources.pattern_timer.start_us(delay.ms());
 
-            let delay: u32 = (1000.0 * t) as u32;
+        *cx.resources.pin_seq = Some(Sequencer::from(PAT.pattern()).pins());
 
-            resources.TIMER.start(delay.ms());
-
-            *resources.PIN_SEQ = Some(Sequencer::from(pattern));
-        }
-
-        if resources.P.is_set_low().unwrap() {
-            resources.P.set_high().unwrap();
+        if cx.resources.test_pin.is_set_low().unwrap() {
+            cx.resources.test_pin.set_high().unwrap();
         } else {
-            resources.P.set_low().unwrap();
+            cx.resources.test_pin.set_low().unwrap();
         }
 
-        resources.TIMER.clear_irq();
+        PAT.next();
+
+        cx.resources.pattern_timer.clear_irq();
     }
 };
 
