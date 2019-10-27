@@ -6,28 +6,32 @@
 #![allow(unused)]
 
 extern crate panic_semihosting;
+extern crate charlieplexing;
 
 //#[macro_use(block)]
 //extern crate nb;
+
+mod board;
+mod led_ring;
 
 // use cortex_m_semihosting::hprintln;
 use rtfm::app;
 use stm32l0xx_hal::{gpio, pac, prelude::*, rcc::Config, timer};
 
-mod charlieplexing;
-mod led_ring;
-
-use charlieplexing::Sequencer;
-use led_ring::pattern::ToDegree;
+use led_ring::ToDegree;
+use charlieplexing::{ApplyPinState, Sequencer, Charlieplexer};
+use board::PinMapping;
 
 #[app(device = stm32l0xx_hal::pac, peripherals = true)]
 const APP: () = {
     struct Resources {
         #[init(None)]
-        pin_seq: Option<charlieplexing::PinSequence>,
+        pin_seq: Option<charlieplexing::Sequencer>,
 
-        test_pin: gpio::gpioa::PA1<gpio::Output<gpio::PushPull>>,
         pattern_timer: timer::Timer<pac::TIM2>,
+        charlie_timer: timer::Timer<pac::TIM21>,
+
+        pin_map: PinMapping,
     }
 
     #[init]
@@ -38,46 +42,52 @@ const APP: () = {
 
         // Configure GPIO
         let gpioa = mcu.GPIOA.split(&mut rcc_cfg);
-        let mut pin_ra = gpioa.pa8.into_push_pull_output();
-        let mut pin_rf = gpioa.pa1.into_push_pull_output();
-
-        pin_ra.set_low().unwrap();
-        pin_rf.set_high().unwrap();
+        let gpiob = mcu.GPIOB.split(&mut rcc_cfg);
 
         // Configure timers
         let mut ptim = mcu.TIM2.timer(100.ms(), &mut rcc_cfg);
+        let mut ctim = mcu.TIM21.timer(200.us(), &mut rcc_cfg);
 
         // Enable interrupts
         ptim.listen();
+        ctim.listen();
 
         init::LateResources {
-            test_pin: pin_rf,
             pattern_timer: ptim,
+            charlie_timer: ctim,
+            pin_map: board::PinMapping::new(gpioa, gpiob),
         }
     }
 
-    #[task(binds = TIM2, resources = [test_pin, pin_seq, pattern_timer])]
-    fn tim2(cx: tim2::Context) {
-        static mut PAT: led_ring::pattern::StrobeSteps = led_ring::pattern::RPM33_DEFAULT;
+    #[task(binds = TIM2, resources = [pin_seq, pattern_timer])]
+    fn pattern_update(mut cx: pattern_update::Context) {
+        static mut PAT: led_ring::StrobeSteps = led_ring::RPM33_DEFAULT;
 
-        let delay = (PAT.time() * 1000.0) as u32;
+        let delay = (PAT.time() * 1_000_000.0) as u32;
 
-        cx.resources.pattern_timer.start_us(delay.ms());
+        cx.resources.pattern_timer.start(delay.us());
 
-        *cx.resources.pin_seq = Some(Sequencer::from(PAT.pattern()).pins());
-
-        if cx.resources.test_pin.is_set_low().unwrap() {
-            cx.resources.test_pin.set_high().unwrap();
-        } else {
-            cx.resources.test_pin.set_low().unwrap();
-        }
+        *cx.resources.pin_seq = Some(Sequencer::new(PAT.pattern()));
 
         PAT.next();
 
         cx.resources.pattern_timer.clear_irq();
     }
+
+    #[task(binds = TIM21, resources = [pin_seq, pin_map, charlie_timer])]
+    fn charlie_update(cx: charlie_update::Context) {
+        cx.resources.charlie_timer.clear_irq();
+
+        match cx.resources.pin_seq {
+            Some(mut seq) => {
+                seq.apply(cx.resources.pin_map);
+                *cx.resources.pin_seq = Some(seq.next());
+            }
+            None => {}
+        }
+    }
 };
 
-fn reference_strobe_pattern(rpm: led_ring::pattern::Rpm) -> led_ring::pattern::StrobeSteps {
-    led_ring::pattern::StrobeSteps::new(rpm, 12.0.deg())
+fn reference_strobe_pattern(rpm: led_ring::Rpm) -> led_ring::StrobeSteps {
+    led_ring::StrobeSteps::new(rpm, 12.0.deg())
 }
